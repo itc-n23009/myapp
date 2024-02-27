@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div style={{textAlign: 'center'}}>
       <h1>PokeShiba!!!(他の犬種も映るレア画像あり)</h1>
       <h2>↓ ここに図鑑番号を記入(最新の1025番目まで対応)</h2>
       <input
