@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function Home() {
+const Home = () => {
   const [pokemonNumber, setPokemonNumber] = useState('');
   const [pokemonData, setPokemonData] = useState(null);
   const [shibaImages, setShibaImages] = useState([]);
@@ -16,11 +16,9 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      // Fetch Pokemon data
       const pokemonResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`);
       setPokemonData(pokemonResponse.data);
       
-      // Fetch Shiba Inu images
       const shibaResponse = await axios.get('https://shibe.online/api/shibes?count=6&urls=true&      httpsUrls=true');
        setShibaImages(shibaResponse.data); 
 
@@ -33,10 +31,10 @@ export default function Home() {
   };
 
   return (
-    <div style={{textAlign: 'center', lineHeight: '2'}}>
+    <div style={{textAlign: 'center', lineHeight: '1.5'}}>
     <title>PokeShiba</title>
       <h1>PokeShiba!!!(他の犬種も映るレア画像あり)</h1>
-      <h2>↓ ここに図鑑番号を記入(最新の1025番目まで対応)</h2>
+      <h2>ここに図鑑番号を記入↓ (最新の1025番目まで対応)</h2>
       <input
         type="number"
         placeholder="Enter Pokemon number"
@@ -62,3 +60,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home
